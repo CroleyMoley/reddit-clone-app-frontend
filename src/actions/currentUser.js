@@ -1,7 +1,7 @@
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
-        payload: user
+        user
     }
 }
 
@@ -17,5 +17,14 @@ export const login = creds => {
             },
             body: JSON.stringify(creds)
         })
+        .then(res => res.json())
+        .then(user => {
+            if (user.error) {
+                alert(user.error)
+            } else {
+                dispatch(setCurrentUser(user))
+            }
+        })
+            .catch(console.log)
     }
 }
