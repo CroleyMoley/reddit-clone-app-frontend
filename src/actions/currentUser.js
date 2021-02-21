@@ -51,3 +51,20 @@ export const getCurrentUser = () => {
         .catch(console.log)
     }
 }
+
+
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
+export const logout = () => {
+    return dispatch => {
+        dispatch(clearCurrentUser())
+        return fetch("http://localhost:3001/api/v1/logout", {
+            creds: "include",
+            method: "DELETE"
+        })
+    }
+}
