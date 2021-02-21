@@ -11,6 +11,7 @@ export const login = creds => {
     console.log("creds are", creds)
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
+            creds: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,6 +34,7 @@ export const getCurrentUser = () => {
     console.log("here is getcurrentuser")
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/get_current_user", {
+            creds: "include",
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
