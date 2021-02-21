@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from '../actions/currentUser.js'
 
-const logout = ({ logout }) => {
+const Logout = ({ logout }) => {
     return (
         <form onSubmit={logout}>
             <input type="submit" value="Logout"></input>
