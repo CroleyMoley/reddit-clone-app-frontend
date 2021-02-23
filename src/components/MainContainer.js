@@ -1,5 +1,5 @@
 import React from 'react'
-import Articles from './articles.js'
+import Articles from './Articles.js'
 
 const MainContainer = () => {
     return (
