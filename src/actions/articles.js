@@ -27,4 +27,3 @@ export const getArticles = () => {
     }
 }
 
-export default articles
