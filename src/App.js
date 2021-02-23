@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react'
-import Login from './components/Login.js'
+
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
-import Logout from './components/Logout.js'
+
 import NavBar from './components/NavBar.js'
 import MainContainer from './components/MainContainer.js'
 

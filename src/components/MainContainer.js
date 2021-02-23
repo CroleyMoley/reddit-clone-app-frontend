@@ -1,9 +1,10 @@
 import React from 'react'
+import Articles from './articles.js'
 
 const MainContainer = () => {
     return (
         <div className="MainContainer">
-            This is the main container 
+            <Articles />
         </div>
     )
 }
