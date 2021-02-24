@@ -3,12 +3,10 @@ import { connect } from 'react-redux'
 import ArticleCard from './ArticleCard.js'
 
 const Articles = props => {
-    const articleCards = props.articles.length > 0 ?
-    props.articles.map(a => <ArticleCard article={a} key={a.id}/>) :
-    null
+    const articleCards = props.articles.map(a => <ArticleCard article={a} key={a.id}/>) 
 
     return (
-        articleCards
+         articleCards.length > 0 ? articleCards : null
     )
 }
 

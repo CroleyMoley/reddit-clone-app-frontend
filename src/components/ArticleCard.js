@@ -2,7 +2,7 @@ import React from 'react'
 
 const ArticleCard = ({ article }) => {
     return (
-        <p>{article.title}</p>
+        <p>{article.attributes.title}</p>
     )
 }
 

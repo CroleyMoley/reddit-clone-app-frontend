@@ -4,6 +4,7 @@ import Articles from './Articles.js'
 const MainContainer = () => {
     return (
         <div className="MainContainer">
+            
             <Articles />
         </div>
     )
