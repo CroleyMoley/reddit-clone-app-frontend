@@ -2,7 +2,7 @@ import React from 'react'
 
 const ArticleCard = ({ article }) => {
     return (
-        <p>{article.attributes.title}</p>
+    <p>{article.attributes.subreddit} {article.attributes.title}</p>
     )
 }
 
