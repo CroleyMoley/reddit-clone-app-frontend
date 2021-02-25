@@ -8,6 +8,7 @@ import NavBar from './components/NavBar.js'
 import MainContainer from './components/MainContainer.js'
 import Logout from './components/Logout.js';
 import Articles from './components/Articles.js'
+import Signup from './components/Signup.js'
 
 class App extends React.Component {
 
@@ -20,10 +21,11 @@ class App extends React.Component {
     return (
      
         <div className="App">
-      
+        
         <NavBar/>
         <Logout/>
         <Route exact path='/login' component={Login}/>
+        <Route exact path='/signup' component={Signup}/>
         <MainContainer/>
       </div>
     

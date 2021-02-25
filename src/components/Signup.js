@@ -22,6 +22,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup }) => {
     return (
         <form onSubmit={handleSubmit}>
             <input placeholder="username" type="text" name="username" value={signupFormData.username} onChange={handleInputChange} ></input>
+            <input placeholder="email" type="text" name="email" value={signupFormData.password} onChange={handleInputChange} ></input>
             <input placeholder="password" type="text" name="password" value={signupFormData.password} onChange={handleInputChange} ></input>
             <input type="submit" value="signup"></input>
         </form>

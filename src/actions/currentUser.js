@@ -1,5 +1,7 @@
 import { resetLoginForm } from './loginForm.js'
 import { getArticles } from './articles.js'
+import { resetSignupForm } from './signupForm.js'
+
 
 export const setCurrentUser = user => {
     return {
@@ -73,5 +75,34 @@ export const logout = () => {
             creds: "include",
             method: "DELETE"
         })
+    }
+}
+
+export const signup = creds => {
+    
+    return dispatch => {
+        const userInfo = {
+            user: creds
+        }
+        return fetch("http://localhost:3001/api/v1/signup", {
+            creds: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(res => res.json())
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                dispatch(setCurrentUser(response.data))
+                dispatch(getArticles())
+                dispatch(resetSignupForm())
+                
+            }
+        })
+            .catch(console.log)
     }
 }
