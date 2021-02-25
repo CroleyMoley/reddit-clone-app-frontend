@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import Login from './components/Login.js'
@@ -18,15 +18,15 @@ class App extends React.Component {
 
   render(){
     return (
-      <Router>
+     
         <div className="App">
-      <Logout/>
-      <NavBar/>
-        
+      
+        <NavBar/>
+        <Logout/>
         <Route exact path='/login' component={Login}/>
-        <Route exact path='/articles' component={Articles}/>
+        <MainContainer/>
       </div>
-     </Router>
+    
     );
 
   }
