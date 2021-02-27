@@ -78,31 +78,29 @@ export const logout = () => {
     }
 }
 
-export const signup = creds => {
-    
+export const signup = credentials => {
     return dispatch => {
-        const userInfo = {
-            user: creds
-        }
-        return fetch("http://localhost:3001/api/v1/signup", {
-            creds: "include",
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userInfo)
-        })
-        .then(res => res.json())
+      const userInfo = {
+        user: credentials
+      }
+      return fetch("http://localhost:3001/api/v1/signup", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+      })
+        .then(r => r.json())
         .then(response => {
-            if (response.error) {
-                alert(response.error)
-            } else {
-                dispatch(setCurrentUser(response.data))
-                dispatch(getArticles())
-                dispatch(resetSignupForm())
-                
-            }
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(setCurrentUser(response.data))
+            dispatch(getArticles())
+            dispatch(resetSignupForm())
+          }
         })
-            .catch(console.log)
+        .catch(console.log)
     }
-}
+  }
