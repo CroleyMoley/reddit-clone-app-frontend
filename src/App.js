@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import Login from './components/Login.js'
@@ -27,7 +27,7 @@ class App extends React.Component {
         <Logout/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/signup' component={Signup}/>
-        <Route exact path='/' render={(props)=> loggedIn ? <Articles {...props}/> : <Home {...props}/>}/>
+        <Route exact path='/' render={()=> loggedIn ? <Articles /> : <Home />}/>
         <MainContainer/>
       </div>
     
@@ -36,7 +36,12 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
+}
 
 
 
-export default connect(null, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
