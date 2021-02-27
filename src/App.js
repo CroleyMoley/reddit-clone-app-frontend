@@ -9,7 +9,7 @@ import MainContainer from './components/MainContainer.js'
 import Logout from './components/Logout.js';
 import Articles from './components/Articles.js'
 import Signup from './components/Signup.js'
-
+import Home from './components/Home.js'
 class App extends React.Component {
 
 
@@ -18,6 +18,7 @@ class App extends React.Component {
   }
 
   render(){
+    const { loggedIn } = this.props
     return (
      
         <div className="App">
@@ -26,7 +27,8 @@ class App extends React.Component {
         <Logout/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/signup' component={Signup}/>
-        <Route exact path='/articles' component={Articles}/>
+        <Route exact path='/' render={(props)=> loggedIn ? <Articles {...props}/> : <Home {...props}/>}/>
+        <MainContainer/>
       </div>
     
     );
