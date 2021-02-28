@@ -26,6 +26,7 @@ class Signup extends React.Component  {
         event.preventDefault()
         this.props.signup(this.state)
     }
+
     render(){
     return (
         <form onSubmit={this.handleSubmit}>

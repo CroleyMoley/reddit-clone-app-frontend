@@ -10,6 +10,8 @@ import Logout from './components/Logout.js';
 import Articles from './components/Articles.js'
 import Signup from './components/Signup.js'
 import Home from './components/Home.js'
+
+
 class App extends React.Component {
 
 
@@ -26,8 +28,9 @@ class App extends React.Component {
         <NavBar/>
         {loggedIn ? <Logout/>: null}
         <Route exact path='/login' component={Login}/>
-        <Route exact path='/signup' component={Signup}/>
+        <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
         <Route exact path='/' render={()=> loggedIn ? <Articles /> : <Home />}/>
+       
         <MainContainer/>
       </div>
     

@@ -12,7 +12,7 @@ export const setCurrentUser = user => {
 
 
 // asynchronous action that returns a fetch and uses dispatch
-export const login = creds => {
+export const login = (creds, history) => {
     console.log("creds are", creds)
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
@@ -31,6 +31,7 @@ export const login = creds => {
                 dispatch(setCurrentUser(response.data))
                 dispatch(getArticles())
                 dispatch(resetLoginForm())
+                history.push('/')
                 
             }
         })
@@ -99,6 +100,7 @@ export const signup = credentials => {
             dispatch(setCurrentUser(response.data))
             dispatch(getArticles())
             dispatch(resetSignupForm())
+            
           }
         })
         .catch(console.log)
