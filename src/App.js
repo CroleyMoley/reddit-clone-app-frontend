@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import Login from './components/Login.js'
@@ -25,14 +25,14 @@ class App extends React.Component {
     return (
      
         <div className="App">
-        
-        <NavBar/>
-        {loggedIn ? <Logout/>: null}
-        <Route exact path='/login' component={Login}/>
-        <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
-        <Route exact path='/' render={()=> loggedIn ? <Articles /> : <Home />}/>
-        <Route exact path='/articles/new' component={NewArticleForm}/>
-        <MainContainer/>
+          { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }
+          <Switch>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+            <Route exact path='/articles' component={Articles}/>
+            <Route exact path='/articles/new' component={NewArticleForm}/>
+            <MainContainer/>
+          </Switch>
       </div>
     
     );
