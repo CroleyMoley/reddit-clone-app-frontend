@@ -30,7 +30,7 @@ class App extends React.Component {
         <Route exact path='/login' component={Login}/>
         <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
         <Route exact path='/' render={()=> loggedIn ? <Articles /> : <Home />}/>
-       
+        <Route exact path='/articles/new' component={NewArticleForm}/>
         <MainContainer/>
       </div>
     
