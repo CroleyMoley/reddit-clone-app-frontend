@@ -5,6 +5,12 @@ export const setArticles = articles => {
     }
 }
 
+export const clearArticles = () => {
+    return{
+        type: "CLEAR_ARTICLES"
+    }
+}
+
 export const getArticles = () => {
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/articles", {

@@ -1,6 +1,7 @@
 import { resetLoginForm } from './loginForm.js'
-import { getArticles } from './articles.js'
+import { getArticles, clearArticles } from './articles.js'
 import { resetSignupForm } from './signupForm.js'
+
 
 
 export const setCurrentUser = user => {
@@ -72,6 +73,7 @@ export const clearCurrentUser = () => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearArticles())
         return fetch("http://localhost:3001/api/v1/logout", {
             creds: "include",
             method: "DELETE"

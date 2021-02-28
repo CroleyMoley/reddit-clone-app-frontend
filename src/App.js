@@ -10,6 +10,7 @@ import Logout from './components/Logout.js';
 import Articles from './components/Articles.js'
 import Signup from './components/Signup.js'
 import Home from './components/Home.js'
+import NewArticleForm from './components/NewArticleForm.js'
 
 
 class App extends React.Component {
