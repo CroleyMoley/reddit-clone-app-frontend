@@ -70,7 +70,7 @@ export const clearCurrentUser = () => {
     }
 }
 
-export const logout = () => {
+export const logout = event => {
     return dispatch => {
         dispatch(clearCurrentUser())
         dispatch(clearArticles())
