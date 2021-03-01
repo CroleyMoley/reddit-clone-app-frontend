@@ -2,15 +2,17 @@ import React from 'react'
 import { updateNewArticleForm } from '../actions/newArticleForm'
 import { connect } from 'react-redux'
 
-const NewArticleForm = ({ subreddit, title, url, content, updateNewArticleForm }) => {
-    
+const NewArticleForm = ({ formData, updateNewArticleForm }) => {
+    const { subreddit, title, url, content } = formData
     const handleChange = event => {
         const { name, value } = event.target
         updateNewArticleForm(name, value)
     }
 
-    const handleSubmit = event => event.preventDefault()
-
+    const handleSubmit = event => {
+        event.preventDefault()
+        
+    }
     return (
         <form onSubmit={handleSubmit}>
             <input placeholder="subreddit" name="subreddit" onChange={handleChange} value={subreddit} />
@@ -23,12 +25,9 @@ const NewArticleForm = ({ subreddit, title, url, content, updateNewArticleForm }
 }
 
 const mapStateToProps = state => {
-    const { subreddit, title, url, content } = state.newArticleForm
+    
     return{
-        subreddit,
-        title,
-        url,
-        content
+        formData: state.newArticleForm
     }
 }
 

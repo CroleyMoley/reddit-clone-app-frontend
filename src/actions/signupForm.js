@@ -1,4 +1,5 @@
-export const updateSignupForm = formData => {
+export const updateSignupForm = ( name, value ) => {
+    const formData = { name, value }
     return {
         type: "UPDATE_SIGNUP_FORM",
         formData
