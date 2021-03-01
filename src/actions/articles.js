@@ -33,3 +33,13 @@ export const getArticles = () => {
     }
 }
 
+export const addArticle = () => {
+    return {
+        type: "ADD_ARTICLE",
+        article 
+    }
+}
+
+export const createArticle = () => {
+    
+}
