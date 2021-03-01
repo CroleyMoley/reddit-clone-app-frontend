@@ -2,7 +2,7 @@ import React from 'react'
 import { updateNewArticleForm } from '../actions/newArticleForm'
 import { connect } from 'react-redux'
 
-const NewArticleForm = ({ subreddit, title, url, content }) => {
+const NewArticleForm = ({ subreddit, title, url, content, updateNewArticleForm }) => {
     
     const handleChange = event => {
         const { name, value } = event.target
