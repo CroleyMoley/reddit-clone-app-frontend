@@ -33,13 +33,34 @@ export const getArticles = () => {
     }
 }
 
-export const addArticle = () => {
+export const addArticle = article => {
     return {
         type: "ADD_ARTICLE",
         article 
     }
 }
 
-export const createArticle = () => {
-    
+export const createArticle = articleData => {
+    return dispatch => {
+        const sendableArticleData = {
+            subreddit: articleData.subreddit,
+            title: articleData.title,
+            url: articleData.url,
+            content: articleData.content,
+            userId: articleData.userId
+        }
+
+        return fetch("http://localhost:3001/api/v1/articles", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableArticleData)
+        })
+        .then(r => r.json())
+      .then(console.log)
+      .catch(console.log)
+        
+    }
 }

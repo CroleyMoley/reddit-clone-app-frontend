@@ -1,8 +1,9 @@
 import React from 'react'
 import { updateNewArticleForm } from '../actions/newArticleForm'
 import { connect } from 'react-redux'
+import { createArticle } from '../actions/articles'
 
-const NewArticleForm = ({ formData, updateNewArticleForm }) => {
+const NewArticleForm = ({ formData, updateNewArticleForm, createArticle, userId }) => {
     const { subreddit, title, url, content } = formData
     const handleChange = event => {
         const { name, value } = event.target
@@ -11,7 +12,11 @@ const NewArticleForm = ({ formData, updateNewArticleForm }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        createArticle({
+            ...formData,
+            userId
         
+        })
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -25,10 +30,12 @@ const NewArticleForm = ({ formData, updateNewArticleForm }) => {
 }
 
 const mapStateToProps = state => {
-    
+    const userId = state.currentUser ? state.currentUser.id : ""
     return{
-        formData: state.newArticleForm
+        
+        formData: state.newArticleForm,
+        userId
     }
 }
 
-export default connect(mapStateToProps, { updateNewArticleForm })(NewArticleForm)
+export default connect(mapStateToProps, { updateNewArticleForm, createArticle })(NewArticleForm)
