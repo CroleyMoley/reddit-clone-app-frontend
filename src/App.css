@@ -46,3 +46,34 @@
 .active {
   color: blue
 }
+
+.ArticleCard {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin: 10px;
+  border-color: gray;
+  border-width: 3px 3px 3px 3px;
+  background-color: grey;
+  column-count: 3;
+}
+
+.CardTitle {
+  position: relative;;  
+  bottom: 19px;
+  color: white;
+  text-decoration: underline;
+}
+
+.CardSubreddit {
+  position: relative;
+  bottom: 73px;
+  right: 250px;
+  
+}
+
+.CardContent {
+  position: relative;
+  bottom: 20px;
+  text-align: left;
+}

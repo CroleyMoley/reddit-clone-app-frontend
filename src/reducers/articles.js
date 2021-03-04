@@ -5,7 +5,7 @@ export default (state = initialState, action) => {
         case "SET_ARTICLES":
             return action.articles
         case "ADD_ARTICLE":
-            return state.articles.concat(action.articles)
+            return state.concat(action.article)
         case "CLEAR_ARTICLES":
             return initialState
 

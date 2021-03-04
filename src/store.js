@@ -13,7 +13,6 @@ const reducer = combineReducers({
     currentUser,
     loginForm,
     articles,
-    signupForm,
     newArticleForm
 })
 

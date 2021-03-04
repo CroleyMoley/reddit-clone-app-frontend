@@ -3,7 +3,7 @@ import { updateNewArticleForm } from '../actions/newArticleForm'
 import { connect } from 'react-redux'
 import { createArticle } from '../actions/articles'
 
-const NewArticleForm = ({ formData, updateNewArticleForm, createArticle, userId }) => {
+const NewArticleForm = ({ formData, updateNewArticleForm, createArticle, userId, history }) => {
     const { subreddit, title, url, content } = formData
     const handleChange = event => {
         const { name, value } = event.target
@@ -16,7 +16,7 @@ const NewArticleForm = ({ formData, updateNewArticleForm, createArticle, userId 
             ...formData,
             userId
         
-        })
+        }, history )
     }
     return (
         <form onSubmit={handleSubmit}>

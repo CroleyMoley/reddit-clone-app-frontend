@@ -1,3 +1,5 @@
+import { resetNewArticleForm } from './newArticleForm.js'
+
 export const setArticles = articles => {
     return {
         type: "SET_ARTICLES",
@@ -40,7 +42,7 @@ export const addArticle = article => {
     }
 }
 
-export const createArticle = articleData => {
+export const createArticle = ( articleData, history ) => {
     return dispatch => {
         const sendableArticleData = {
             subreddit: articleData.subreddit,
@@ -59,8 +61,15 @@ export const createArticle = articleData => {
             body: JSON.stringify(sendableArticleData)
         })
         .then(r => r.json())
-      .then(console.log)
-      .catch(console.log)
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          dispatch(addArticle(resp.data))
+          dispatch(resetNewArticleForm())
+          history.push(`/articles`)
+        }
+    })
         
     }
 }

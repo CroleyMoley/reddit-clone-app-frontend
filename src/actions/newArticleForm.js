@@ -5,3 +5,9 @@ export const updateNewArticleForm = (name, value) => {
         formData
     }
 }
+
+export const resetNewArticleForm = () => {
+    return {
+        type: "RESET_NEW_ARTICLE_FORM"
+    }
+}
