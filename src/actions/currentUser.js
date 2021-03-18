@@ -32,7 +32,7 @@ export const login = (creds, history) => {
                 dispatch(setCurrentUser(response.data))
                 dispatch(getArticles())
                 dispatch(resetLoginForm())
-                history.push('/')
+                history.push('/articles')
                 
             }
         })
